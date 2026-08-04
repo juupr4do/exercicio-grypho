@@ -26,6 +26,10 @@ def main():
 
     processadas = 0
     descartadas = 0
+    doisXX = 0
+    tresXX = 0
+    quatroXX = 0
+    cincoXX = 0
 
     arquivo = abrir_log(args.logfile)
     with arquivo:
@@ -36,9 +40,24 @@ def main():
                 descartadas += 1
             else:
                 processadas += 1
+                status = match.group("status")
+                print(status)
+                if status[0] == '2':
+                    doisXX += 1
+                if status[0] == '3':
+                    tresXX += 1
+                if status[0] == '4':
+                    quatroXX += 1
+                if status[0] == '5':
+                    cincoXX += 1
+
             continue
 
     print(f"Processadas: {processadas}")
     print(f"Descartadas: {descartadas}")
+    print(f"2xx: {doisXX}")
+    print(f"3xx: {tresXX}")
+    print(f"4xx: {quatroXX}")
+    print(f"5xx: {cincoXX}")
 
 main()
