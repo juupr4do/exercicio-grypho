@@ -1,6 +1,7 @@
 import argparse
 import re
 import sys
+from collections import Counter
 
 LOG_PATTERN = re.compile(
     r'(?P<ip>\S+) \S+ \S+ \[(?P<timestamp>[^\]]+)\] ' +
@@ -30,6 +31,7 @@ def main():
     tresXX = 0
     quatroXX = 0
     cincoXX = 0
+    endpoints = Counter()
 
     arquivo = abrir_log(args.logfile)
     with arquivo:
@@ -41,7 +43,12 @@ def main():
             else:
                 processadas += 1
                 status = match.group("status")
-                print(status)
+                request = match.group("request")
+
+                metodo, endpoint, protocolo = request.split()
+                endpoints[endpoint] += 1
+                top5 = endpoints.most_common(5)
+
                 if status[0] == '2':
                     doisXX += 1
                 if status[0] == '3':
@@ -55,9 +62,12 @@ def main():
 
     print(f"Processadas: {processadas}")
     print(f"Descartadas: {descartadas}")
+    print(f"Top 5 endpoints acessados: {top5}")
+    print(f"5xx: {cincoXX}")
     print(f"2xx: {doisXX}")
     print(f"3xx: {tresXX}")
     print(f"4xx: {quatroXX}")
+    print(f"5xx: {cincoXX}")
     print(f"5xx: {cincoXX}")
 
 main()
