@@ -1,7 +1,0 @@
-192.168.1.10 - - [10/Oct/2023:13:55:36 -0700] "GET /index.html HTTP/1.1" 200 1024 "-" "Mozilla/5.0"
-192.168.1.11 - - [10/Oct/2023:13:56:10 -0700] "GET /about.html HTTP/1.1" 200 512 "-" "Mozilla/5.0"
-192.168.1.10 - - [10/Oct/2023:13:57:22 -0700] "GET /missing.html HTTP/1.1" 404 0 "-" "curl/7.68.0"
-192.168.1.12 - - [10/Oct/2023:14:02:05 -0700] "POST /login HTTP/1.1" 302 0 "-" "Mozilla/5.0"
-192.168.1.10 - - [10/Oct/2023:14:03:47 -0700] "GET /index.html HTTP/1.1" 200 1024 "-" "Mozilla/5.0"
-192.168.1.13 - - [10/Oct/2023:14:10:59 -0700] "GET /admin HTTP/1.1" 500 0 "-" "python-requests/2.28"
-esta linha esta corrompida e nao deve ser parseada
