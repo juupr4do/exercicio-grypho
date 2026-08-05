@@ -1,7 +1,7 @@
 from logstats import LOG_PATTERN, abrir_log
 
 
-def test_linha_formatada():
+def teste_linha_formatada():
     linha = '10.0.0.0 - - [04/Aug/2026:20:57:32 +0000] "GET /teste HTTP/1.1" 200 1043 0.040'
     match = LOG_PATTERN.match(linha)
 
@@ -13,13 +13,13 @@ def test_linha_formatada():
     assert match.group("size") == "1043"
     assert match.group("response_time") == "0.040"
 
-def test_linha_corrompida():
+def teste_linha_corrompida():
     linha = "linha corrompida"
     match = LOG_PATTERN.match(linha)
 
     assert match is None
 
-def test_abrir_log():
+def teste_abrir_log():
     doc = abrir_log("teste")
     conteudo = doc.read()
     doc.close()
