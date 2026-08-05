@@ -29,9 +29,9 @@ def teste_abrir_log():
 if __name__ == "__main__":
 
     testes = [
-        test_linha_formatada,
-        test_linha_corrompida,
-        test_abrir_log
+        teste_linha_formatada,
+        teste_linha_corrompida,
+        teste_abrir_log
     ]
 
     falhas = 0
