@@ -4,6 +4,7 @@ import sys
 from collections import Counter
 import statistics
 
+
 LOG_PATTERN = re.compile(
     r'(?P<ip>\S+) \S+ \S+ \[(?P<timestamp>[^\]]+)\] ' +
     r'"(?P<request>[^"]*)" (?P<status>\d{3}) (?P<size>\S+)' +
@@ -87,4 +88,5 @@ def main():
     print(f"4xx: {quatroXX}")
     print(f"5xx: {cincoXX}")
 
-main()
+if __name__ == "__main__":
+    main()
